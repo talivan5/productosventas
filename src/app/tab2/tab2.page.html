@@ -7,13 +7,13 @@
 </ion-header>
 
 <ion-content>
-    <ion-card size="4" *ngFor="let imagen of imagenes">
+    <ion-card size="4" *ngFor="let curso of cursos">
         <ion-card-header>
             <ion-col >
-                <img src="{{imagen}}" alt="" srcset="" (click)="Verimagen()">
+                <img [src]="curso.picture.medium" alt="" srcset="" (click)="Verimagen()">
               </ion-col>
           <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
+          <ion-card-title>{{curso.email}}</ion-card-title>
         </ion-card-header>
     
         <ion-card-content>

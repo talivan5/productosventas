@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ImagenModalPage } from '../imagen-modal/imagen-modal.page';
 
+import { CursoApiService } from 'src/app/services/curso-api.service';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -9,7 +11,12 @@ import { ImagenModalPage } from '../imagen-modal/imagen-modal.page';
 })
 export class Tab2Page {
 
-  constructor(private modalCtrl:ModalController){
+  cursos:any[]=[];
+
+  constructor(
+    private modalCtrl:ModalController,
+    public cursoApi: CursoApiService
+    ){
 
   }
 
@@ -29,5 +36,17 @@ export class Tab2Page {
       component:ImagenModalPage
     }).then(modal=>modal.present())
   }
+
+  getListarCursos(){
+    this.cursoApi.getAllCursos()
+    .subscribe(
+      (data)=>{
+       this.cursos=data['results'];
+      }, (error)=>{
+         console.log(error);
+      }
+    )
+  }
+
 
 }

@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 
 import { ImagenModalPageModule } from './imagen-modal/imagen-modal.module';
 
+//servicios de las apis
+import { CursoApiService } from './services/curso-api.service';
+
 
 
 @NgModule({
@@ -27,6 +30,7 @@ import { ImagenModalPageModule } from './imagen-modal/imagen-modal.module';
      
   providers: [
     StatusBar,
+    CursoApiService,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
